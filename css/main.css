@@ -1,7 +1,6 @@
 .zero{
  position: absolute;
  top: 10px;
- left: 1800px;
  width: 100px;
  z-index: 1;
  background-image: url(../img/3.png);
@@ -12,6 +11,21 @@
  cursor: grab;
 }
 
+.anim-show{
+    opacity:0; /*Элемент полностью прозрачный (невидимый)*/
+    animation: show 3s 1; /* Указываем название анимации, её время и количество повторов*/
+    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+    animation-delay: 1s; /* Задержка перед началом */
+    }
+
+@keyframes show{
+    0%{
+    opacity:0;
+    }
+    100% {
+    opacity:1;
+    }
+    }
 
 body{
    
@@ -19,6 +33,7 @@ body{
     --def: #96B7C4; 	
 	--inv: #fff;
 	height: 920px;
+    overflow: hidden;
 }
 
 header button{
@@ -277,6 +292,56 @@ label {
 .from-bottom:hover:after {
 	height: 100%;
 }
+
+/*timer*/
+.timer__items {
+    display: flex;
+    font-size: 48px;
+    position: absolute;
+    left: 330px;
+    top: 100px;
+    opacity: 0.5;
+  }
+  .timer__item {
+    position: relative;
+    min-width: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  .timer__item::before {
+    content: attr(data-title);
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    font-size: 14px;
+  }
+  .timer__item:not(:last-child)::after {
+    content: ':';
+    position: absolute;
+    right: -15px;
+  }
+
+/*end-game-page*/
+.end-game-page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pacifico', cursive;
+} 
+.end-game-score{
+    font-size: 40px;
+}
+.end-game-page p{
+    padding: 15px;
+    font-size: 52px;
+}
+
 /* Весы*/
 .scales
 {
@@ -412,6 +477,7 @@ label {
         transform: rotate(-15deg);
     }
 }
+
 
 .hide{
     display: none;

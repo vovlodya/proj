@@ -27,10 +27,15 @@
        <button id="2" class="level from-center">Средний</button>
        <button id="3" class="level from-bottom"><p>Сложный</p></button>       
    </div>
-   <div class="game-page"></div>
-   <div class="end-game-page"></div>
-   <div class="zero hide" draggable="true"> </div>
-    <div class="scales hide">
+   <div class="game-page hide">
+    
+    <div class="timer">
+        <div class="timer__items">
+          <div class="timer__item timer__minutes">00</div>
+          <div class="timer__item timer__seconds">00</div>
+        </div>
+      </div>
+    <div class="scales">
         <div class="scales-base"></div>
         <div class="scales-body"></div>
         <div class="scales-arm"></div>
@@ -46,7 +51,11 @@
             <div class="scales-right-tread"></div>
         </div>
     </div>
-    </div>
-    
+   </div>
+   <div class="end-game-page hide">
+    <p class="end-game-score">Вы набрали 15 очков</p>
+    <button class="start-btn end"><p>Вернуться в меню</p></button>
+   </div>
+
     <script src="./js/script.js"></script>
 </body>
