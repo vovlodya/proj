@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chumertov</title>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<header>
+	<button class="theme hide"> Сменить тему </button>
+</header>
+<body>
+    
+   <div class="start-page">
+       <p>Весы</p>
+       <button class="start-btn">Начать</button>
+    </div>
+   <div class="login-page hide">
+        <div class="group">      
+           <input type="text" value="abobus" required>
+           <span class="bar"></span>
+           <label>Имя</label>
+        </div>
+       <button class="start-btn next"><p>Продолжить</p></button>
+   </div>
+   <div class="menu-page hide">
+       <p class="greeting"></p>
+       <button id="1" class="level from-top"><p>Легкий</p></button>
+       <button id="2" class="level from-center">Средний</button>
+       <button id="3" class="level from-bottom"><p>Сложный</p></button>       
+   </div>
+   <div class="game-page"></div>
+   <div class="end-game-page"></div>
+   <div class="zero hide" draggable="true"> </div>
+    <div class="scales hide">
+        <div class="scales-base"></div>
+        <div class="scales-body"></div>
+        <div class="scales-arm"></div>
+        <div class="scales-left-part">
+            
+            <div class="scales-bowl"></div>
+            <div class="scales-left-tread"></div>
+            <div class="scales-right-tread"></div>
+        </div>
+        <div class="scales-right-part">
+            <div class="scales-bowl"></div>
+            <div class="scales-left-tread"></div>
+            <div class="scales-right-tread"></div>
+        </div>
+    </div>
+    </div>
+    
+    <script src="./js/script.js"></script>
+</body>

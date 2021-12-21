@@ -1,0 +1,463 @@
+.zero{
+ position: absolute;
+ top: 10px;
+ left: 1800px;
+ width: 100px;
+ z-index: 1;
+ background-image: url(../img/3.png);
+ background-size: 100px;
+ width: 100px;
+ height: 150px;
+ background-repeat: no-repeat;
+ cursor: grab;
+}
+
+
+body{
+   
+    background: linear-gradient(to bottom right, #0C7BB3, #F2BAE8);
+    --def: #96B7C4; 	
+	--inv: #fff;
+	height: 920px;
+}
+
+header button{
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: #FFF;
+}
+
+header button:hover{
+    animation-name: theme;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    
+}
+
+@keyframes theme {
+   0%{color: rgb(207, 109, 236);}
+   25%{color: green;}
+   50%{color: rgb(193, 196, 22);}
+   75%{color: rgb(177, 127, 21);}
+   100%{color: rgb(8, 6, 160);}
+    
+}
+/*Cтартовая страница*/
+.start-page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+       
+}
+.start-page p{
+    font-size: 100px;
+    margin-bottom: 10px;
+    font-family: 'Pacifico', cursive;
+    color: rgb(29, 29, 29);
+    margin-bottom: 30px;
+}
+
+.start-btn{
+    font-size: 70px;
+    font-family: 'Pacifico', cursive;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    background-color: #343A40;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.start-btn:hover{
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
+  animation:slidebg 2s linear infinite;
+}
+
+@keyframes slidebg {
+    to {
+      background-position:40vw;
+    }
+  }
+
+.start-btn p{
+    font-size: 38px;
+}
+/*Авторизация*/ 
+.login-page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pacifico', cursive;
+}
+.group {
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  input {
+    font-size: 40px;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    opacity: 0.5;
+  }
+  input:focus {
+    outline: none;
+  }
+
+label {
+    color: rgb(48, 48, 48);
+    font-size: 40px;
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 15px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  
+  input:focus ~ label, input:valid ~ label {
+    top: -30px;
+    font-size: 24px;
+    color: #131313;
+  }
+  
+  .bar {
+    position: relative;
+    display: block;
+    width: 220px;
+  }
+  .bar:before, .bar:after {
+    content: "";
+    height: 4px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #e09509;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  .bar:before {
+    left: 50%;
+  }
+  .bar:after {
+    right: 50%;
+  }
+  
+  input:focus ~ .bar:before,
+  input:focus ~ .bar:after {
+    width: 50%;
+  }
+
+ /*Меню*/
+ .menu-page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pacifico', cursive;
+} 
+.greeting{
+    font-size: 40px;
+}
+.level {		
+	position: relative;	
+	padding: 10px 20px;
+	font-size: 30px;
+	color: var(--inv);
+	letter-spacing: 1.1rem;
+	text-transform: uppercase;
+	transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);	
+	cursor: pointer;
+	user-select: none;
+    background: none;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.level:before, .level:after {
+	content: '';
+	position: absolute;	
+	transition: inherit;
+	z-index: -1;
+}
+
+.level:hover {
+	color: var(--def);
+	transition-delay: .5s;
+}
+
+.level:hover:before {
+	transition-delay: 0s;
+}
+
+.level:hover:after {
+	background: var(--inv);
+	transition-delay: .35s;
+}
+/* From Top */
+.from-top:before, 
+.from-top:after {
+	left: 0;
+	height: 0;
+	width: 100%;
+}
+.from-top:before {
+	bottom: 0;	
+	border: 1px solid var(--inv);
+	border-top: 0;
+	border-bottom: 0;
+}
+.from-top:after {
+	top: 0;
+	height: 0;
+}
+.from-top:hover:before,
+.from-top:hover:after {
+	height: 100%;
+}
+/* From center */
+.from-center:before {
+	top: 0;
+	left: 50%;
+	height: 100%;
+	width: 0;
+	border: 1px solid var(--inv);
+	border-left: 0;
+	border-right: 0;
+}
+.from-center:after {
+	bottom: 0;
+	left: 0;
+	height: 0;
+	width: 100%;
+	background: var(--inv);
+}
+.from-center:hover:before {
+	left: 0;
+	width: 100%;
+}
+.from-center:hover:after {
+	top: 0;
+	height: 100%;
+}
+/* From Bottom */
+.from-bottom:before, 
+.from-bottom:after {
+	left: 0;
+	height: 0;
+	width: 100%;
+}
+
+.from-bottom:before {
+	top: 0;	
+	border: 1px solid var(--inv);
+	border-top: 0;
+	border-bottom: 0;
+}
+
+.from-bottom:after {
+	bottom: 0;
+	height: 0;
+}
+
+.from-bottom:hover:before,
+.from-bottom:hover:after {
+	height: 100%;
+}
+/* Весы*/
+.scales
+{
+    display: flex;
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    top: 130px;
+}
+
+.scales-base{
+    height: 0; 
+    width: 150px;
+    border-bottom: 100px solid #103583;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-radius: 40px;
+    position: absolute;
+    top: 87.5%;
+    left: 34.375%;
+    }
+
+.scales-body{
+        height: 600px; 
+        width: 100px;
+        background-color:  #103583;
+        border-top: 30px solid #103583;
+        border-top-right-radius : 50px;
+        border-top-left-radius : 50px;
+        position: absolute;
+        left: 43.75%;
+        top: 6%;
+        }
+
+
+.scales-arm{
+
+        position: absolute;        
+        width: 560px;
+        height: 50px;
+        border-radius: 100% 100% 0 0;
+        border-top: 30px solid #103583;
+        top: 140px;
+        left: 120px;
+    
+}
+
+.scales-left-part{
+    position: relative;
+    width: 400px;
+    height: 600px;
+   
+}
+.scales-right-part
+{
+    position: relative;
+    width: 400px;
+    height: 600px;
+    transform: scale(-1, 1);
+}
+
+.scales-left-tread{
+    height: 300px; 
+    width: 2px;
+    background-color:  #103583;
+    position: absolute;
+    left: 68px;
+    top: 170px;
+    transform: rotate(20deg);
+}
+
+.scales-right-tread{
+    height: 300px; 
+    width: 2px;
+    background-color:  #103583;
+    position: absolute;
+    left: 170px;
+    top: 170px;
+    transform: rotate(-20deg);
+}
+
+.scales-bowl{
+    width: 204px;
+	height: 80px;
+	background: #103583;
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    transform: scale(-1);
+    position: absolute;
+    top: 460px;
+    left: 18px;
+}
+
+@keyframes scales-bowl-disbalanse-up{
+    0%{
+        left: 0px;
+        top: 0px;
+    }
+
+    100%{
+        left: 10px;
+        top: -72px;
+    }
+}
+
+@keyframes scales-bowl-disbalanse-down{
+    0%{
+        left: 0px;
+        top: 0px;
+    }
+
+    100%{
+        left: -10px;
+        top: 72px;
+    }
+}
+
+@keyframes scales-arm-disbalanse-right{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(15deg);
+    }
+}
+
+@keyframes scales-arm-disbalanse-left{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(-15deg);
+    }
+}
+
+.hide{
+    display: none;
+}
+
+.scales:hover .scales-arm{
+    
+        animation-name: scales-arm-disbalanse-right;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;        
+}
+
+.scales:hover .scales-left-part{
+    animation-name: scales-bowl-disbalanse-up;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;   
+}
+
+.scales:hover .scales-right-part {
+    animation-name: scales-bowl-disbalanse-down;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards; 
+}
+
+.scales-right-part:hover .scales-arm{
+    
+    animation-name: scales-arm-disbalanse-left;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;        
+}
+
+.scales-right-part:hover .scales-left-part{
+animation-name: scales-bowl-disbalanse-down;
+animation-duration: 1s;
+animation-timing-function: linear;
+animation-fill-mode: forwards;   
+}
+
+.scales-right-part:hover .scales-right-part {
+animation-name: scales-bowl-disbalanse-up;
+animation-duration: 1s;
+animation-timing-function: linear;
+animation-fill-mode: forwards; 
+}
+
