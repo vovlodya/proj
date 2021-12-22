@@ -121,7 +121,7 @@ function createNumber(){
     newNumber.classList.add('anim-show');
     draggedId = getRandomInt(level,7+level);
     newNumber.id=draggedId;
-    newNumber.style.backgroundImage =  'url(../img/' + draggedId + '.png)';
+    newNumber.style.backgroundImage =  'url(img/' + draggedId + '.png)';
     newNumber.draggable=true;
     newNumber.style.left = getRandomInt(800,1701)+'px';
     newNumber.style.top = getRandomInt(1,721)+'px';
