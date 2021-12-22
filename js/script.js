@@ -1,11 +1,18 @@
-const leftBowl = document.querySelector('.scales-left-part .scales-bowl');
-const rightBowl = document.querySelector('.scales-right-part .scales-bowl');
+const leftBowlCounter = document.querySelector('.scales-left-part .scales-bowl .counters');
+const rightBowlCounter = document.querySelector('.scales-right-part .scales-bowl .counters');
+const leftBowlPart = document.querySelector('.scales-left-part');
+const rightBowlPart = document.querySelector('.scales-right-part');
 let offsetX;
 let offsetY;
 let userName = "";
 let theme = false;
 let level;
-let levelTime = 3;
+let levelTime = 1;
+let numberOnDelete = null;
+let dragged;
+let isIn = 0;
+let draggedId;
+let endGame= null;
 document.querySelector('body').addEventListener('dragover',(event)=>{
 event.preventDefault();    
 })
@@ -45,23 +52,26 @@ document.getElementById('1').addEventListener('click',()=>{
     document.querySelector('.menu-page').classList.add('hide');
     document.querySelector('.game-page').classList.remove('hide');
     timeEnds();
-    setInterval(startGame(), 5000);
-    level =1;    
+    level =1;  
+    setTimeout(createNumber,3000);
+      
 })
 
 //2 уровень
-document.getElementById('1').addEventListener('click',()=>{
+document.getElementById('2').addEventListener('click',()=>{
     document.querySelector('.menu-page').classList.add('hide');
     document.querySelector('.game-page').classList.remove('hide');
     timeEnds();
     level =2;
+    setTimeout(createNumber,3000);
 })
 //3 уровень
-document.getElementById('1').addEventListener('click',()=>{
+document.getElementById('3').addEventListener('click',()=>{
     document.querySelector('.menu-page').classList.add('hide');
     document.querySelector('.game-page').classList.remove('hide');
     timeEnds();
     level =3;
+    setTimeout(createNumber,3000);
 })
 
 //таймер
@@ -73,6 +83,14 @@ function timeEnds(){
       if (diff <= 0) {
           //закончилось время
         clearInterval(timerId);
+        clearTimeout(endGame);
+        clearTimeout(numberOnDelete);
+        if(leftBowlCounter.innerHTML===rightBowlCounter.innerHTML)
+        {
+            document.querySelector('.end-game-score').innerHTML='Ваш результат: '+leftBowlCounter.innerHTML;
+        }
+        leftBowlCounter.innerHTML=0;
+        rightBowlCounter.innerHTML=0;
         document.querySelector('.game-page').classList.add('hide');
         document.querySelector('.end-game-page').classList.remove('hide');
         document.querySelector('.end').addEventListener('click', ()=>{
@@ -95,41 +113,71 @@ function timeEnds(){
   }
 
 //создание элементов
-function startGame(){
-     
+function createNumber(){
      
     let appearingSide = document.querySelector('.game-page');
     let newNumber = document.createElement('div');
     newNumber.classList.add('zero');
     newNumber.classList.add('anim-show');
+    draggedId = getRandomInt(level,7+level);
+    newNumber.id=draggedId;
+    newNumber.style.backgroundImage =  'url(../img/' + draggedId + '.png)';
     newNumber.draggable=true;
+    newNumber.style.left = getRandomInt(800,1701)+'px';
+    newNumber.style.top = getRandomInt(1,721)+'px';
     appearingSide.appendChild(newNumber);
     //перетаскивание цифр
     newNumber.addEventListener('dragstart', function(event) {
+        dragged = newNumber;
         offsetX = event.offsetX;
         offsetY = event.offsetY;
         });
         newNumber.addEventListener('dragend',function(event){
         newNumber.style.top = (event.pageY - offsetY) + 'px';
         newNumber.style.left = (event.pageX - offsetX) + 'px';
-        //left = elem.getBoundingClientRect();
     });
-    
+    numberOnDelete = setTimeout( ()=>{
+        let elem=document.querySelector('.zero');
+        elem.classList.remove('anim-show');
+        elem.classList.add('anim-remove');
+        setTimeout( ()=>{elem.remove()},2000);
+    },7000);
+   endGame=setTimeout(createNumber,3000);
 }
 
+//меняет цвет чаши
+document.addEventListener("dragenter", function( event ) {
+    if ( event.target.className == "scales-bowl" ) {
+        event.target.style.background = "purple";
+    }
 
-//проверка нахождения в чаше
-function IsInLeftBowl (){
-    return intersects(leftBowl.getBoundingClientRect(),elem.getBoundingClientRect());
-}
+}, false);
+//восстанавливает цвет чаши
+document.addEventListener("dragleave", function( event ) {
+    if ( event.target.className == "scales-bowl" ) {
+        event.target.style.background = "";
+    }
 
-function IsInRightBowl (){
-    return intersects(rightBowl.getBoundingClientRect(),elem.getBoundingClientRect());
-}
-
-function intersects ( a, b ) {
-    return !( a.top > b.bottom || a.bottom < b.bottom || a.right < b.left+(b.right-b.left)/2 || a.left > b.right-(b.right-b.left)/2 );
+}, false);
+//отпускание цифры в чашу
+document.addEventListener("drop", function( event ) {
+    if ( event.target.className == "scales-bowl" ) {
+        event.target.style.background = "";
+        clearTimeout(numberOnDelete);
+        dragged.classList.remove('anim-show');
+        dragged.classList.add('anim-remove');
+        let todel =dragged;
+        if(event.target.parentNode=== leftBowlPart)
+        leftBowlCounter.innerHTML=Number(leftBowlCounter.innerHTML)+Number(dragged.id);
+        else rightBowlCounter.innerHTML = Number(rightBowlCounter.innerHTML)+Number(dragged.id);
+        setTimeout( ()=>{dragged.parentNode.removeChild(todel)},2000);
+    }
+  
+}, false);
+//функция рандома [min, max)
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; 
   }
-
-
 

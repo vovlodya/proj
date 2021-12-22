@@ -3,19 +3,33 @@
  top: 10px;
  width: 100px;
  z-index: 1;
- background-image: url(../img/3.png);
  background-size: 100px;
  width: 100px;
  height: 150px;
  background-repeat: no-repeat;
  cursor: grab;
 }
-
+.anim-remove{
+    animation-name: remove;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes remove{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
 .anim-show{
-    opacity:0; /*Элемент полностью прозрачный (невидимый)*/
-    animation: show 3s 1; /* Указываем название анимации, её время и количество повторов*/
-    animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
-    animation-delay: 1s; /* Задержка перед началом */
+    opacity:0;
+    animation: show 3s;
+    animation-fill-mode: forwards;
     }
 
 @keyframes show{
@@ -34,6 +48,7 @@ body{
 	--inv: #fff;
 	height: 920px;
     overflow: hidden;
+    user-select: none;
 }
 
 header button{
@@ -86,8 +101,15 @@ header button:hover{
     background-color: #343A40;
     color: #FFF;
     cursor: pointer;
+    padding: 10px;
+    width: 250px;
 }
-
+.login-page .start-btn{
+    font-size: 36px;
+}
+.end-game-page .start-btn{
+    width: 500px;
+}
 .start-btn:hover{
     color: rgb(255, 255, 255);
     background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
@@ -96,13 +118,11 @@ header button:hover{
 
 @keyframes slidebg {
     to {
-      background-position:40vw;
+      background-position:500px;
     }
   }
 
-.start-btn p{
-    font-size: 38px;
-}
+
 /*Авторизация*/ 
 .login-page{
     height: 100%;
@@ -434,6 +454,19 @@ label {
     left: 18px;
 }
 
+.counters{
+    position: absolute;
+    font-family: 'Roboto';
+    font-size: 30px;
+    color: bisque;
+    top: 30px;
+    left: 100px;
+    transform: scale(-1);
+}
+
+.scales-right-part .counters{
+    transform: scaleY(-1);
+}
 @keyframes scales-bowl-disbalanse-up{
     0%{
         left: 0px;
@@ -478,11 +511,10 @@ label {
     }
 }
 
-
 .hide{
     display: none;
 }
-
+/*
 .scales:hover .scales-arm{
     
         animation-name: scales-arm-disbalanse-right;
@@ -527,3 +559,4 @@ animation-timing-function: linear;
 animation-fill-mode: forwards; 
 }
 
+*/
