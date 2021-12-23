@@ -14,6 +14,7 @@ let isIn = 0;
 let draggedId;
 let endGame= null;
 let bestScore = 0;
+let currentScore =0;
 document.querySelector('body').addEventListener('dragover',(event)=>{
 event.preventDefault();    
 })
@@ -39,6 +40,8 @@ document.querySelector('.next').addEventListener('click', ()=>{
 
 //возврат на авторизацию
 document.querySelector('.back').addEventListener('click',()=>{
+    currentScore=0;
+    bestScore=0;
     document.querySelector('.menu-page').classList.add('hide');
     document.querySelector('.login-page').classList.remove('hide');
 })
@@ -106,7 +109,7 @@ function timeEnds(){
         clearTimeout(numberOnDelete);
         if(leftBowlCounter.innerHTML===rightBowlCounter.innerHTML)
         {
-            let currentScore = Number(leftBowlCounter.innerHTML);
+            currentScore = Number(leftBowlCounter.innerHTML);
             if(bestScore<currentScore) bestScore=currentScore;
             document.querySelector('.end-game-score').innerHTML='Ваш результат: '+currentScore;
         }
