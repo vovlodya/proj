@@ -1,6 +1,5 @@
 .zero{
  position: absolute;
- top: 10px;
  width: 100px;
  z-index: 1;
  background-size: 100px;
@@ -9,6 +8,7 @@
  background-repeat: no-repeat;
  cursor: grab;
 }
+
 .anim-remove{
     animation-name: remove;
     animation-timing-function: linear;
@@ -27,17 +27,16 @@
     }
 }
 .anim-show{
-    opacity:0;
-    animation: show 3s;
+    animation: show 2s;
     animation-fill-mode: forwards;
     }
 
 @keyframes show{
     0%{
-    opacity:0;
+    transform: scale(0);
     }
     100% {
-    opacity:1;
+    transform: scale(1);
     }
     }
 
@@ -52,10 +51,13 @@ body{
 }
 
 header button{
-    font-size: 20px;
+    font-size: 28px;
     background: none;
     border: none;
     color: #FFF;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
 
 header button:hover{
@@ -459,20 +461,18 @@ label {
     font-family: 'Roboto';
     font-size: 30px;
     color: bisque;
-    top: 30px;
-    left: 100px;
+    top: 230px;
+    left: 90px;
     transform: scale(-1);
 }
 
 .scales-right-part .counters{
     transform: scaleY(-1);
 }
-@keyframes scales-bowl-disbalanse-up{
-    0%{
-        left: 0px;
-        top: 0px;
-    }
 
+
+@keyframes scales-bowl-disbalanse-up{
+    
     100%{
         left: 10px;
         top: -72px;
@@ -480,11 +480,7 @@ label {
 }
 
 @keyframes scales-bowl-disbalanse-down{
-    0%{
-        left: 0px;
-        top: 0px;
-    }
-
+    
     100%{
         left: -10px;
         top: 72px;
@@ -492,20 +488,14 @@ label {
 }
 
 @keyframes scales-arm-disbalanse-right{
-    0%{
-        transform: rotate(0deg);
-    }
-
+  
     100%{
         transform: rotate(15deg);
     }
 }
 
 @keyframes scales-arm-disbalanse-left{
-    0%{
-        transform: rotate(0deg);
-    }
-
+    
     100%{
         transform: rotate(-15deg);
     }
@@ -514,49 +504,122 @@ label {
 .hide{
     display: none;
 }
+
+.back{
+    border: none;
+    font: 700 4em/1 "Oswald", sans-serif;
+    letter-spacing: 0;
+    padding: .25em 0 .325em;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 80px rgba(255,255,255,.5);
+    background: url(../img/exit.png) repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: aitf 80s linear infinite;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+}
+.back:hover
+{
+    animation-direction:reverse;
+}
+@keyframes aitf {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.nametag{
+    position: absolute;
+    left: 1600px;
+    top: 900px;
+    font: 2em sans-serif;
+}
+.table {
+    text-decoration: none;
+    position: absolute;
+    top: 5px;
+    left: 1750px;
+    color: white;
+    padding: 20px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+    border: none;
+  }
+  .table:hover {
+    background-position: right center;
+  }
+
+  .table-page{
+      
+      
+      height: 100%;
+     position: absolute;
+     top: 20%;
+     left: 36%;
+  }
+  table {
+      
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #ECE9E0;
+    color: #656665;
+    border: 16px solid #ECE9E0;
+    border-radius: 20px;
+    }
+    th {
+    font-size: 38px;
+    padding: 10px;
+    }
+    td {
+    font-size: 28px;
+    background: #F5D7BF;
+    padding: 10px;
+    }
+
+.table-page .start-btn{
+    margin-top: 50px;
+    font-size: 50px;
+    width: 500px;
+}
 /*
-.scales:hover .scales-arm{
-    
+.right-arm-position{
+
         animation-name: scales-arm-disbalanse-right;
         animation-duration: 1s;
         animation-timing-function: linear;
         animation-fill-mode: forwards;        
 }
 
-.scales:hover .scales-left-part{
+.up-position{
     animation-name: scales-bowl-disbalanse-up;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;   
 }
 
-.scales:hover .scales-right-part {
+.down-position {
     animation-name: scales-bowl-disbalanse-down;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards; 
 }
 
-.scales-right-part:hover .scales-arm{
-    
+.left-arm-position{
+
     animation-name: scales-arm-disbalanse-left;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;        
 }
-
-.scales-right-part:hover .scales-left-part{
-animation-name: scales-bowl-disbalanse-down;
-animation-duration: 1s;
-animation-timing-function: linear;
-animation-fill-mode: forwards;   
-}
-
-.scales-right-part:hover .scales-right-part {
-animation-name: scales-bowl-disbalanse-up;
-animation-duration: 1s;
-animation-timing-function: linear;
-animation-fill-mode: forwards; 
-}
-
 */

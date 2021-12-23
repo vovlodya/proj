@@ -13,6 +13,7 @@ let dragged;
 let isIn = 0;
 let draggedId;
 let endGame= null;
+let bestScore = 0;
 document.querySelector('body').addEventListener('dragover',(event)=>{
 event.preventDefault();    
 })
@@ -23,7 +24,7 @@ document.querySelector('.start-btn').addEventListener('click', ()=>{
 })
 //переход на страницу с меню
 document.querySelector('.next').addEventListener('click', ()=>{
-
+    bestScore=0;
     userName = document.querySelector('input').value;
     if(userName != ""){
     document.querySelector('.login-page').classList.add('hide');
@@ -34,6 +35,24 @@ document.querySelector('.next').addEventListener('click', ()=>{
     else{
         alert('Вы забыли ввести имя');
     }
+})
+
+//возврат на авторизацию
+document.querySelector('.back').addEventListener('click',()=>{
+    document.querySelector('.menu-page').classList.add('hide');
+    document.querySelector('.login-page').classList.remove('hide');
+})
+
+//переход на таблицу
+document.querySelector('.table').addEventListener('click',()=>{
+    document.querySelector('.menu-page').classList.add('hide');
+    document.querySelector('.table-page').classList.remove('hide');
+})
+
+//возврат с таблицы 
+document.querySelector('.table-page .start-btn').addEventListener('click',()=>{
+    document.querySelector('.table-page').classList.add('hide');
+    document.querySelector('.menu-page').classList.remove('hide');
 })
 //смена темы
 document.querySelector('.theme').addEventListener('click', ()=>{
@@ -53,7 +72,7 @@ document.getElementById('1').addEventListener('click',()=>{
     document.querySelector('.game-page').classList.remove('hide');
     timeEnds();
     level =1;  
-    setTimeout(createNumber,3000);
+    setTimeout(createNumber,1000);
       
 })
 
@@ -63,7 +82,7 @@ document.getElementById('2').addEventListener('click',()=>{
     document.querySelector('.game-page').classList.remove('hide');
     timeEnds();
     level =2;
-    setTimeout(createNumber,3000);
+    setTimeout(createNumber,1000);
 })
 //3 уровень
 document.getElementById('3').addEventListener('click',()=>{
@@ -71,7 +90,7 @@ document.getElementById('3').addEventListener('click',()=>{
     document.querySelector('.game-page').classList.remove('hide');
     timeEnds();
     level =3;
-    setTimeout(createNumber,3000);
+    setTimeout(createNumber,1000);
 })
 
 //таймер
@@ -87,17 +106,35 @@ function timeEnds(){
         clearTimeout(numberOnDelete);
         if(leftBowlCounter.innerHTML===rightBowlCounter.innerHTML)
         {
-            document.querySelector('.end-game-score').innerHTML='Ваш результат: '+leftBowlCounter.innerHTML;
+            let currentScore = Number(leftBowlCounter.innerHTML);
+            if(bestScore<currentScore) bestScore=currentScore;
+            document.querySelector('.end-game-score').innerHTML='Ваш результат: '+currentScore;
         }
+        else  document.querySelector('.end-game-score').innerHTML='Вы проиграли...';
         leftBowlCounter.innerHTML=0;
         rightBowlCounter.innerHTML=0;
+        document.querySelector('.greeting').innerHTML='Ваш лучший счет: '+bestScore;
         document.querySelector('.game-page').classList.add('hide');
         document.querySelector('.end-game-page').classList.remove('hide');
         document.querySelector('.end').addEventListener('click', ()=>{
             document.querySelector('.end-game-page').classList.add('hide');
             document.querySelector('.menu-page').classList.remove('hide');
         })
-      }
+        document.querySelectorAll('.zero').forEach(function(item){item.remove()});
+        //заполнение таблицы
+        let insertPlace=document.getElementById('insert-place');
+        let tr=document.createElement('tr');
+        insertPlace.parentNode.insertBefore(tr,insertPlace);
+        let td =document.createElement('td');
+        td.innerHTML=userName;
+        tr.appendChild(td);
+        td =document.createElement('td');
+        td.innerHTML=currentScore;
+        tr.appendChild(td);
+        td=document.createElement('td');
+        td.innerHTML=dateStart.getDate()+'.'+(Number(dateStart.getMonth())+1)+'.'+dateStart.getFullYear()+'  '+dateStart.getHours()+':'+dateStart.getMinutes();
+        tr.appendChild(td);
+    }
       const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
       const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
       $minutes.textContent = minutes < 10 ? '0' + minutes : minutes;
@@ -141,8 +178,8 @@ function createNumber(){
         elem.classList.remove('anim-show');
         elem.classList.add('anim-remove');
         setTimeout( ()=>{elem.remove()},2000);
-    },7000);
-   endGame=setTimeout(createNumber,3000);
+    },10000-level*1000);
+    endGame=setTimeout(createNumber,2500);
 }
 
 //меняет цвет чаши
@@ -180,4 +217,40 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; 
   }
+/*
+function leftPosition(){
+    let arm=document.querySelector('.scales-arm');
+    arm.classList.remove('right-arm-position');
+    arm.classList.add('left-arm-position');
+    let leftSide=document.querySelector('.scales-left-part');
+    leftSide.classList.remove('up-position');
+    leftSide.classList.add('down-position');
+    let rightSide=document.querySelector('.scales-right-part');
+    leftSide.classList.remove('down-position');
+    leftSide.classList.add('up-position');
+}
 
+function middlePosition(){
+    let arm=document.querySelector('.scales-arm');
+    arm.classList.remove('right-arm-position');
+    arm.classList.remove('left-arm-position');
+    let leftSide=document.querySelector('.scales-left-part');
+    leftSide.classList.remove('up-position');
+    leftSide.classList.remove('down-position');
+    let rightSide=document.querySelector('.scales-right-part');
+    leftSide.classList.remove('down-position');
+    leftSide.classList.remove('up-position');
+}
+
+function rightPosition(){
+    let arm=document.querySelector('.scales-arm');
+    arm.classList.remove('left-arm-position');
+    arm.classList.add('right-arm-position');
+    let leftSide=document.querySelector('.scales-left-part');
+    leftSide.classList.remove('down-position');
+    leftSide.classList.add('up-position');
+    let rightSide=document.querySelector('.scales-right-part');
+    leftSide.classList.remove('up-position');
+    leftSide.classList.add('-position');
+}
+*/

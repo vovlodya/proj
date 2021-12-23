@@ -14,18 +14,20 @@
     </div>
    <div class="login-page hide">
         <div class="group">      
-           <input type="text" value="abobus" required>
+           <input type="text"  required>
            <span class="bar"></span>
            <label>Имя</label>
         </div>
        <button class="start-btn next"><p>Продолжить</p></button>
    </div>
    <div class="menu-page hide">
-       <p class="greeting"></p>
+    <button class="table">Таблица</button>   
+    <p class="greeting"></p>
        <button id="1" class="level from-top"><p>Легкий</p></button>
        <button id="2" class="level from-center">Средний</button>
        <button id="3" class="level from-bottom"><p>Сложный</p></button>       
-   </div>
+        <button class="back">ВЫХОД</button>
+    </div>
    <div class="game-page hide">
     
     <div class="timer">
@@ -55,6 +57,26 @@
     <p class="end-game-score"></p>
     <button class="start-btn end"><p>Вернуться в меню</p></button>
    </div>
-
+   <div class="table-page hide"><table>
+    <tr>
+      <th>Имя</th>
+      <th>Счет</th>
+      <th>Начало игры</th>
+      </tr>
+     <tr id='insert-place'>
+      <td></td>
+      <td></td>
+      <td></td>
+     </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    </table>
+    <button class="start-btn end"><p>Вернуться в меню</p></button>
+</div>
+    
+   <div class="nametag">© Chumertov Vladimir</div>
     <script src="./js/script.js"></script>
 </body>
