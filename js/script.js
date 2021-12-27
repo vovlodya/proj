@@ -176,7 +176,7 @@ function createNumber(){
     appearingSide.appendChild(newNumber);
     if(level===3)
     {
-        let rnd = getRandomInt(4,11);
+        let rnd = getRandomInt(4,10);
         newNumber.style.height=15*rnd+'px';
         newNumber.style.width=10*rnd+'px';
         newNumber.style.backgroundSize=10*rnd+'px';

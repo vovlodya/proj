@@ -327,7 +327,7 @@ label {
     font-size: 48px;
     position: absolute;
     left: 280px;
-    top: 70px;
+    top: 0px;
     opacity: 0.5;
   }
   .timer__item {
@@ -361,6 +361,8 @@ label {
     justify-content: center;
     align-items: center;
     font-family: 'Pacifico', cursive;
+    position: relative;
+    bottom: 30%;
 } 
 .end-game-score{
     font-size: 40px;
@@ -377,7 +379,7 @@ label {
     width: 700px;
     height: 700px;
     position: absolute;
-    top: 100px;
+    top: 10px;
 }
 
 .scales-base{
