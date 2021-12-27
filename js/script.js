@@ -7,7 +7,7 @@ let offsetY;
 let userName = "";
 let theme = false;
 let level;
-let levelTime = 1;
+let levelTime = 5;
 let numberOnDelete = null;
 let dragged;
 let isIn = 0;
@@ -176,7 +176,6 @@ function createNumber(){
     appearingSide.appendChild(newNumber);
     if(level===3)
     {
-        newNumber.style.transform = 'rotateZ('+getRandomInt(0,360)+'deg)';
         let rnd = getRandomInt(4,11);
         newNumber.style.height=15*rnd+'px';
         newNumber.style.width=10*rnd+'px';

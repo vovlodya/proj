@@ -213,7 +213,7 @@ label {
 .level {		
 	position: relative;	
 	padding: 10px 20px;
-	font-size: 30px;
+	font-size: 24px;
 	color: var(--inv);
 	letter-spacing: 1.1rem;
 	text-transform: uppercase;
@@ -321,8 +321,8 @@ label {
     display: flex;
     font-size: 48px;
     position: absolute;
-    left: 330px;
-    top: 100px;
+    left: 280px;
+    top: 70px;
     opacity: 0.5;
   }
   .timer__item {
@@ -369,27 +369,27 @@ label {
 .scales
 {
     display: flex;
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 700px;
     position: absolute;
-    top: 130px;
+    top: 100px;
 }
 
 .scales-base{
     height: 0; 
-    width: 150px;
+    width: 110px;
     border-bottom: 100px solid #103583;
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
     border-radius: 40px;
     position: absolute;
-    top: 87.5%;
-    left: 34.375%;
+    top: 90%;
+    left: 35%;
     }
 
 .scales-body{
-        height: 600px; 
-        width: 100px;
+        height: 550px; 
+        width: 90px;
         background-color:  #103583;
         border-top: 30px solid #103583;
         border-top-right-radius : 50px;
@@ -403,7 +403,7 @@ label {
 .scales-arm{
 
         position: absolute;        
-        width: 560px;
+        width: 460px;
         height: 50px;
         border-radius: 100% 100% 0 0;
         border-top: 30px solid #103583;
@@ -427,34 +427,34 @@ label {
 }
 
 .scales-left-tread{
-    height: 300px; 
+    height: 292px; 
     width: 2px;
     background-color:  #103583;
     position: absolute;
-    left: 68px;
-    top: 170px;
-    transform: rotate(20deg);
+    left: 86px;
+    top: 175px;
+    transform: rotate(14deg);
 }
 
 .scales-right-tread{
-    height: 300px; 
+    height: 292px; 
     width: 2px;
     background-color:  #103583;
     position: absolute;
-    left: 170px;
-    top: 170px;
-    transform: rotate(-20deg);
+    left: 157px;
+    top: 175px;
+    transform: rotate(-14deg);
 }
 
 .scales-bowl{
-    width: 204px;
-	height: 80px;
+    width: 144px;
+	height: 60px;
 	background: #103583;
 	border-radius: 50% 50% 0 0 / 100% 100% 0 0;
     transform: scale(-1);
     position: absolute;
     top: 460px;
-    left: 18px;
+    left: 50px;
 }
 
 .counters{
@@ -462,8 +462,8 @@ label {
     font-family: 'Roboto';
     font-size: 30px;
     color: bisque;
-    top: 230px;
-    left: 90px;
+    top: 150px;
+    left: 60px;
     transform: scale(-1);
 }
 
@@ -472,47 +472,16 @@ label {
 }
 
 
-@keyframes scales-bowl-disbalanse-up{
-    
-    100%{
-        left: 10px;
-        top: -72px;
-    }
-}
-
-@keyframes scales-bowl-disbalanse-down{
-    
-    100%{
-        left: -10px;
-        top: 72px;
-    }
-}
-
-@keyframes scales-arm-disbalanse-right{
-  
-    100%{
-        transform: rotate(15deg);
-    }
-}
-
-@keyframes scales-arm-disbalanse-left{
-    
-    100%{
-        transform: rotate(-15deg);
-    }
-}
-
 .hide{
     display: none;
 }
 
 .back{
     border: none;
-    font: 700 4em/1 "Oswald", sans-serif;
+    font: 700 3em "Oswald", sans-serif;
     letter-spacing: 0;
-    padding: .25em 0 .325em;
     display: block;
-    margin: 0 auto;
+    margin: 0;
     text-shadow: 0 0 80px rgba(255,255,255,.5);
     background: url(../img/exit.png) repeat-y;
     -webkit-background-clip: text;
@@ -533,15 +502,15 @@ label {
 
 .nametag{
     position: absolute;
-    left: 1600px;
-    top: 900px;
+    right: 10px;
+    bottom: 10px;
     font: 2em sans-serif;
 }
 .table {
     text-decoration: none;
     position: absolute;
     top: 5px;
-    left: 1750px;
+    right: 10px;
     color: white;
     padding: 20px 30px;
     margin: 10px 20px;
