@@ -7,7 +7,7 @@ let offsetY;
 let userName = "";
 let theme = false;
 let level;
-let levelTime = 5;
+let levelTime = 1;
 let numberOnDelete = null;
 let dragged;
 let isIn = 0;
@@ -170,7 +170,7 @@ function createNumber(){
     newNumber.id=draggedId;
     newNumber.style.backgroundImage =  'url(img/' + draggedId + '.png)';
     newNumber.draggable=true;
-    newNumber.style.left = getRandomInt(800,1701)+'px';
+    newNumber.style.left = getRandomInt(700,1201)+'px';
     newNumber.style.top = getRandomInt(1,721)+'px';
   
     appearingSide.appendChild(newNumber);
