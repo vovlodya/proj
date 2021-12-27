@@ -85,10 +85,11 @@ header button:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-       
+    position: relative;
+    bottom: 40%;
 }
 .start-page p{
-    font-size: 100px;
+    font-size: 80px;
     margin-bottom: 10px;
     font-family: 'Pacifico', cursive;
     color: rgb(29, 29, 29);
@@ -134,6 +135,8 @@ header button:hover{
     justify-content: center;
     align-items: center;
     font-family: 'Pacifico', cursive;
+    position: relative;
+    bottom: 34%;
 }
 .group {
     position: relative;
@@ -206,9 +209,12 @@ label {
     justify-content: center;
     align-items: center;
     font-family: 'Pacifico', cursive;
+    position: relative;
+    bottom: 30%;
 } 
 .greeting{
-    font-size: 40px;
+    font-size: 34px;
+    margin-bottom: 0;
 }
 .level {		
 	position: relative;	
@@ -222,7 +228,6 @@ label {
 	user-select: none;
     background: none;
     border: none;
-    margin-bottom: 10px;
 }
 
 .level:before, .level:after {
@@ -509,7 +514,7 @@ label {
 .table {
     text-decoration: none;
     position: absolute;
-    top: 5px;
+    top: 31%;
     right: 10px;
     color: white;
     padding: 20px 30px;
