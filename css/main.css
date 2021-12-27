@@ -9,6 +9,7 @@
  cursor: grab;
 }
 
+
 .anim-remove{
     animation-name: remove;
     animation-timing-function: linear;
@@ -588,38 +589,61 @@ label {
     }
 
 .table-page .start-btn{
-    margin-top: 50px;
+    margin-bottom: 50px;
     font-size: 50px;
     width: 500px;
 }
-/*
-.right-arm-position{
 
-        animation-name: scales-arm-disbalanse-right;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;        
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.up-position{
-    animation-name: scales-bowl-disbalanse-up;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;   
+/* алерт */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 10px;
+    left: 50px;
+    margin-left: -80px;
 }
 
-.down-position {
-    animation-name: scales-bowl-disbalanse-down;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards; 
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
 }
 
-.left-arm-position{
-
-    animation-name: scales-arm-disbalanse-left;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;        
+.popup .appear {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
 }
-*/
+
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}

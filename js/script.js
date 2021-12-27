@@ -34,7 +34,8 @@ document.querySelector('.next').addEventListener('click', ()=>{
     document.querySelector('.greeting').innerHTML = "Привет " + userName + ", выбирай уровень";
     }
     else{
-        alert('Вы забыли ввести имя');
+        let popup = document.getElementById("myPopup");
+        popup.classList.toggle("appear");
     }
 })
 
@@ -113,7 +114,11 @@ function timeEnds(){
             if(bestScore<currentScore) bestScore=currentScore;
             document.querySelector('.end-game-score').innerHTML='Ваш результат: '+currentScore;
         }
-        else  document.querySelector('.end-game-score').innerHTML='Вы проиграли...';
+        else 
+        { 
+            currentScore=0;
+            document.querySelector('.end-game-score').innerHTML='Вы проиграли...';
+        }   
         leftBowlCounter.innerHTML=0;
         rightBowlCounter.innerHTML=0;
         document.querySelector('.greeting').innerHTML='Ваш лучший счет: '+bestScore;
@@ -127,7 +132,7 @@ function timeEnds(){
         //заполнение таблицы
         let insertPlace=document.getElementById('insert-place');
         let tr=document.createElement('tr');
-        insertPlace.parentNode.insertBefore(tr,insertPlace);
+        insertPlace.parentNode.insertBefore(tr,insertPlace.nextSibling);
         let td =document.createElement('td');
         td.innerHTML=userName;
         tr.appendChild(td);
@@ -137,6 +142,8 @@ function timeEnds(){
         td=document.createElement('td');
         td.innerHTML=dateStart.getDate()+'.'+(Number(dateStart.getMonth())+1)+'.'+dateStart.getFullYear()+'  '+dateStart.getHours()+':'+dateStart.getMinutes();
         tr.appendChild(td);
+        let last = insertPlace.parentNode.lastElementChild;
+        last.parentNode.removeChild(last);
     }
       const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) % 60 : 0;
       const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
@@ -165,7 +172,16 @@ function createNumber(){
     newNumber.draggable=true;
     newNumber.style.left = getRandomInt(800,1701)+'px';
     newNumber.style.top = getRandomInt(1,721)+'px';
+  
     appearingSide.appendChild(newNumber);
+    if(level===3)
+    {
+        newNumber.style.transform = 'rotateZ('+getRandomInt(0,360)+'deg)';
+        let rnd = getRandomInt(4,11);
+        newNumber.style.height=15*rnd+'px';
+        newNumber.style.width=10*rnd+'px';
+        newNumber.style.backgroundSize=10*rnd+'px';
+    }
     //перетаскивание цифр
     newNumber.addEventListener('dragstart', function(event) {
         dragged = newNumber;
@@ -220,40 +236,4 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; 
   }
-/*
-function leftPosition(){
-    let arm=document.querySelector('.scales-arm');
-    arm.classList.remove('right-arm-position');
-    arm.classList.add('left-arm-position');
-    let leftSide=document.querySelector('.scales-left-part');
-    leftSide.classList.remove('up-position');
-    leftSide.classList.add('down-position');
-    let rightSide=document.querySelector('.scales-right-part');
-    leftSide.classList.remove('down-position');
-    leftSide.classList.add('up-position');
-}
 
-function middlePosition(){
-    let arm=document.querySelector('.scales-arm');
-    arm.classList.remove('right-arm-position');
-    arm.classList.remove('left-arm-position');
-    let leftSide=document.querySelector('.scales-left-part');
-    leftSide.classList.remove('up-position');
-    leftSide.classList.remove('down-position');
-    let rightSide=document.querySelector('.scales-right-part');
-    leftSide.classList.remove('down-position');
-    leftSide.classList.remove('up-position');
-}
-
-function rightPosition(){
-    let arm=document.querySelector('.scales-arm');
-    arm.classList.remove('left-arm-position');
-    arm.classList.add('right-arm-position');
-    let leftSide=document.querySelector('.scales-left-part');
-    leftSide.classList.remove('down-position');
-    leftSide.classList.add('up-position');
-    let rightSide=document.querySelector('.scales-right-part');
-    leftSide.classList.remove('up-position');
-    leftSide.classList.add('-position');
-}
-*/

@@ -8,12 +8,15 @@
 	<button class="theme hide"> Сменить тему </button>
 </header>
 <body>
-   <div class="start-page">
+  <!--<div class="zero" style="background-image: url(img/8.png); left: 1229px; top: 627px; transform: rotateZ(90deg);"></div>"
+  -->   <div class="start-page">
        <p>Весы</p>
        <button class="start-btn">Начать</button>
     </div>
    <div class="login-page hide">
-        <div class="group">      
+    <div class="popup"><span class="popuptext" id="myPopup">Введите имя</span></div>     
+    <div class="group">
+               
            <input type="text"  required>
            <span class="bar"></span>
            <label>Имя</label>
@@ -57,26 +60,35 @@
     <p class="end-game-score"></p>
     <button class="start-btn end"><p>Вернуться в меню</p></button>
    </div>
-   <div class="table-page hide"><table>
-    <tr>
-      <th>Имя</th>
-      <th>Счет</th>
-      <th>Начало игры</th>
-      </tr>
-     <tr id='insert-place'>
+   <div class="table-page hide">
+    <button class="start-btn end"><p>Вернуться в меню</p></button>
+    <table id='mytable'>
+      <tr id='insert-place'>
+        <th>Имя</th>
+        <th>Счет</th>
+        <th>Начало игры</th>
+        </tr> 
+     <tr>
       <td></td>
       <td></td>
       <td></td>
      </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr >
     <tr>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     </table>
-    <button class="start-btn end"><p>Вернуться в меню</p></button>
 </div>
     
    <div class="nametag">© Chumertov Vladimir</div>
     <script src="./js/script.js"></script>
 </body>
+
+
